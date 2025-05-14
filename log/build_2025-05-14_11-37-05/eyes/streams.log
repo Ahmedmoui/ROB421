@@ -1,0 +1,38 @@
+[0.741s] Invoking command in '/home/autobeton1/ROB421/faceDisplay/eyes': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/autobeton1/ROB421/build/eyes/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/autobeton1/ROB421/install/eyes/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/eyes build --build-base /home/autobeton1/ROB421/build/eyes/build install --record /home/autobeton1/ROB421/build/eyes/install.log --single-version-externally-managed install_data
+[0.972s] running egg_info
+[0.972s] creating ../../build/eyes/eyes.egg-info
+[0.987s] writing ../../build/eyes/eyes.egg-info/PKG-INFO
+[0.987s] writing dependency_links to ../../build/eyes/eyes.egg-info/dependency_links.txt
+[0.987s] writing entry points to ../../build/eyes/eyes.egg-info/entry_points.txt
+[0.987s] writing requirements to ../../build/eyes/eyes.egg-info/requires.txt
+[0.987s] writing top-level names to ../../build/eyes/eyes.egg-info/top_level.txt
+[0.987s] writing manifest file '../../build/eyes/eyes.egg-info/SOURCES.txt'
+[1.016s] reading manifest file '../../build/eyes/eyes.egg-info/SOURCES.txt'
+[1.016s] adding license file 'LICENSE'
+[1.017s] writing manifest file '../../build/eyes/eyes.egg-info/SOURCES.txt'
+[1.017s] running build
+[1.017s] running build_py
+[1.017s] creating /home/autobeton1/ROB421/build/eyes/build
+[1.018s] creating /home/autobeton1/ROB421/build/eyes/build/lib
+[1.018s] creating /home/autobeton1/ROB421/build/eyes/build/lib/eyes
+[1.018s] copying eyes/__init__.py -> /home/autobeton1/ROB421/build/eyes/build/lib/eyes
+[1.018s] copying eyes/eyes_node.py -> /home/autobeton1/ROB421/build/eyes/build/lib/eyes
+[1.018s] running install
+[1.025s] running install_lib
+[1.040s] creating /home/autobeton1/ROB421/install/eyes/lib/python3.12/site-packages/eyes
+[1.040s] copying /home/autobeton1/ROB421/build/eyes/build/lib/eyes/__init__.py -> /home/autobeton1/ROB421/install/eyes/lib/python3.12/site-packages/eyes
+[1.040s] copying /home/autobeton1/ROB421/build/eyes/build/lib/eyes/eyes_node.py -> /home/autobeton1/ROB421/install/eyes/lib/python3.12/site-packages/eyes
+[1.041s] byte-compiling /home/autobeton1/ROB421/install/eyes/lib/python3.12/site-packages/eyes/__init__.py to __init__.cpython-312.pyc
+[1.041s] byte-compiling /home/autobeton1/ROB421/install/eyes/lib/python3.12/site-packages/eyes/eyes_node.py to eyes_node.cpython-312.pyc
+[1.041s] running install_data
+[1.041s] creating /home/autobeton1/ROB421/install/eyes/share/ament_index
+[1.041s] creating /home/autobeton1/ROB421/install/eyes/share/ament_index/resource_index
+[1.041s] creating /home/autobeton1/ROB421/install/eyes/share/ament_index/resource_index/packages
+[1.041s] copying resource/eyes -> /home/autobeton1/ROB421/install/eyes/share/ament_index/resource_index/packages
+[1.041s] copying package.xml -> /home/autobeton1/ROB421/install/eyes/share/eyes
+[1.041s] running install_egg_info
+[1.058s] Copying ../../build/eyes/eyes.egg-info to /home/autobeton1/ROB421/install/eyes/lib/python3.12/site-packages/eyes-0.0.1-py3.12.egg-info
+[1.059s] running install_scripts
+[1.162s] Installing eyes script to /home/autobeton1/ROB421/install/eyes/lib/eyes
+[1.162s] writing list of installed files to '/home/autobeton1/ROB421/build/eyes/install.log'
+[1.178s] Invoked command in '/home/autobeton1/ROB421/faceDisplay/eyes' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/autobeton1/ROB421/build/eyes/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/autobeton1/ROB421/install/eyes/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/eyes build --build-base /home/autobeton1/ROB421/build/eyes/build install --record /home/autobeton1/ROB421/build/eyes/install.log --single-version-externally-managed install_data

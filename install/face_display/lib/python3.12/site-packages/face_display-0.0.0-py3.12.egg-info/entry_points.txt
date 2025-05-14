@@ -1,0 +1,2 @@
+[console_scripts]
+eyes = face_display.eyes:main

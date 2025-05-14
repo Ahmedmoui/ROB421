@@ -32,12 +32,7 @@ blink_start_time = 0
 running = True
 while running:
     now = pygame.time.get_ticks()
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT or (
-            event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
-            running = False
-
+    
     screen.fill(WHITE)
 
     # Start blinking if time

@@ -1,0 +1,23 @@
+[0.553s] Invoking command in '/home/autobeton1/ROB421/src/face_display': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/autobeton1/ROB421/build/face_display/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/autobeton1/ROB421/install/face_display/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/face_display build --build-base /home/autobeton1/ROB421/build/face_display/build install --record /home/autobeton1/ROB421/build/face_display/install.log --single-version-externally-managed install_data
+[0.734s] running egg_info
+[0.748s] writing ../../build/face_display/face_display.egg-info/PKG-INFO
+[0.749s] writing dependency_links to ../../build/face_display/face_display.egg-info/dependency_links.txt
+[0.749s] writing entry points to ../../build/face_display/face_display.egg-info/entry_points.txt
+[0.749s] writing requirements to ../../build/face_display/face_display.egg-info/requires.txt
+[0.749s] writing top-level names to ../../build/face_display/face_display.egg-info/top_level.txt
+[0.777s] reading manifest file '../../build/face_display/face_display.egg-info/SOURCES.txt'
+[0.777s] adding license file 'LICENSE'
+[0.777s] writing manifest file '../../build/face_display/face_display.egg-info/SOURCES.txt'
+[0.777s] running build
+[0.777s] running build_py
+[0.778s] running install
+[0.781s] running install_lib
+[0.795s] running install_data
+[0.795s] copying package.xml -> /home/autobeton1/ROB421/install/face_display/share/face_display
+[0.795s] running install_egg_info
+[0.810s] removing '/home/autobeton1/ROB421/install/face_display/lib/python3.12/site-packages/face_display-0.0.0-py3.12.egg-info' (and everything under it)
+[0.810s] Copying ../../build/face_display/face_display.egg-info to /home/autobeton1/ROB421/install/face_display/lib/python3.12/site-packages/face_display-0.0.0-py3.12.egg-info
+[0.811s] running install_scripts
+[0.902s] Installing eyes script to /home/autobeton1/ROB421/install/face_display/lib/face_display
+[0.902s] writing list of installed files to '/home/autobeton1/ROB421/build/face_display/install.log'
+[0.920s] Invoked command in '/home/autobeton1/ROB421/src/face_display' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/autobeton1/ROB421/build/face_display/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/autobeton1/ROB421/install/face_display/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/face_display build --build-base /home/autobeton1/ROB421/build/face_display/build install --record /home/autobeton1/ROB421/build/face_display/install.log --single-version-externally-managed install_data

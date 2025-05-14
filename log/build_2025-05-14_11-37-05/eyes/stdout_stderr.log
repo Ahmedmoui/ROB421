@@ -1,0 +1,36 @@
+running egg_info
+creating ../../build/eyes/eyes.egg-info
+writing ../../build/eyes/eyes.egg-info/PKG-INFO
+writing dependency_links to ../../build/eyes/eyes.egg-info/dependency_links.txt
+writing entry points to ../../build/eyes/eyes.egg-info/entry_points.txt
+writing requirements to ../../build/eyes/eyes.egg-info/requires.txt
+writing top-level names to ../../build/eyes/eyes.egg-info/top_level.txt
+writing manifest file '../../build/eyes/eyes.egg-info/SOURCES.txt'
+reading manifest file '../../build/eyes/eyes.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../build/eyes/eyes.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/autobeton1/ROB421/build/eyes/build
+creating /home/autobeton1/ROB421/build/eyes/build/lib
+creating /home/autobeton1/ROB421/build/eyes/build/lib/eyes
+copying eyes/__init__.py -> /home/autobeton1/ROB421/build/eyes/build/lib/eyes
+copying eyes/eyes_node.py -> /home/autobeton1/ROB421/build/eyes/build/lib/eyes
+running install
+running install_lib
+creating /home/autobeton1/ROB421/install/eyes/lib/python3.12/site-packages/eyes
+copying /home/autobeton1/ROB421/build/eyes/build/lib/eyes/__init__.py -> /home/autobeton1/ROB421/install/eyes/lib/python3.12/site-packages/eyes
+copying /home/autobeton1/ROB421/build/eyes/build/lib/eyes/eyes_node.py -> /home/autobeton1/ROB421/install/eyes/lib/python3.12/site-packages/eyes
+byte-compiling /home/autobeton1/ROB421/install/eyes/lib/python3.12/site-packages/eyes/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/autobeton1/ROB421/install/eyes/lib/python3.12/site-packages/eyes/eyes_node.py to eyes_node.cpython-312.pyc
+running install_data
+creating /home/autobeton1/ROB421/install/eyes/share/ament_index
+creating /home/autobeton1/ROB421/install/eyes/share/ament_index/resource_index
+creating /home/autobeton1/ROB421/install/eyes/share/ament_index/resource_index/packages
+copying resource/eyes -> /home/autobeton1/ROB421/install/eyes/share/ament_index/resource_index/packages
+copying package.xml -> /home/autobeton1/ROB421/install/eyes/share/eyes
+running install_egg_info
+Copying ../../build/eyes/eyes.egg-info to /home/autobeton1/ROB421/install/eyes/lib/python3.12/site-packages/eyes-0.0.1-py3.12.egg-info
+running install_scripts
+Installing eyes script to /home/autobeton1/ROB421/install/eyes/lib/eyes
+writing list of installed files to '/home/autobeton1/ROB421/build/eyes/install.log'

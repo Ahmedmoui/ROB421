@@ -1,0 +1,2 @@
+[console_scripts]
+eyes = eyes.eyes_node:main
