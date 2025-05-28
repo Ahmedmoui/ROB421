@@ -3,7 +3,7 @@ import pygame
 import sys
 
 # Set position (optional, in case you need to target a specific screen)
-os.environ['SDL_VIDEO_WINDOW_POS'] = "1920,0"
+os.environ['SDL_VIDEO_WINDOW_POS'] = "0,0"
 
 # Initialize
 pygame.init()
