@@ -9,10 +9,9 @@ os.environ['SDL_VIDEO_WINDOW_POS'] = "0,0"
 
 # Initialize
 pygame.init()
-pygame.display.set_caption("Face Display")
 screen = pygame.display.set_mode((480, 800), pygame.FULLSCREEN)
 
-pygame.display.set_caption("Blinking Eyes - Portrait")
+pygame.display.set_caption("Blinking Eyes")
 clock = pygame.time.Clock()
 
 # Colors
