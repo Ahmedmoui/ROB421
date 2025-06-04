@@ -30,12 +30,20 @@ right_eye_base = [310, 100]
 left_eye_pos = left_eye_base[:]
 right_eye_pos = right_eye_base[:]
 
+# Eyebrow dimensions (wider and more offset)
+eyebrow_width = 100
+eyebrow_height = 10
+eyebrow_offset = 40
+
 # Mouth position and dimensions
 mouth_pos = [220, 550]  # x, y
 mouth_width = 140
 mouth_height_base = 20
 mouth_amplitude = 5  # How much the mouth "wiggles"
-mouth_freq = 2       # How fast the mouth wiggles (Hz)
+mouth_freq = 0.5     # Slower wiggle (Hz)
+mouth_height = mouth_height_base
+next_mouth_shift_time = 0
+mouth_shift_interval_range = (2000, 5000)  # ms
 
 # Blink animation settings
 blink_interval = 3000      # Time between blinks (ms)
@@ -48,8 +56,9 @@ blink_start_time = 0
 eye_movement_timer = 0
 next_eye_shift_time = 0
 eye_shift_interval_range = (3000, 6000)  # in ms
-eye_shift_amount = 2
-max_eye_shift = 15  # pixels
+eye_shift_x = 0
+eye_shift_y = 0
+max_eye_shift = 20  # pixels
 
 # Main loop
 running = True
@@ -76,17 +85,21 @@ while running:
             blinking = False
             blink_progress = 0
 
-    # Animate small side-to-side eye movement
+    # Animate small random eye movement (x and y)
     if now > next_eye_shift_time:
         if random.random() < 0.5:
-            eye_shift_amount = random.randint(-max_eye_shift, max_eye_shift)
+            eye_shift_x = random.randint(-max_eye_shift, max_eye_shift)
+            eye_shift_y = random.randint(-max_eye_shift, max_eye_shift)
         else:
-            eye_shift_amount = 0
+            eye_shift_x = 0
+            eye_shift_y = 0
         next_eye_shift_time = now + random.randint(*eye_shift_interval_range)
 
     # Update eye positions
-    left_eye_pos[0] = left_eye_base[0] + eye_shift_amount
-    right_eye_pos[0] = right_eye_base[0] + eye_shift_amount
+    left_eye_pos[0] = left_eye_base[0] + eye_shift_x
+    left_eye_pos[1] = left_eye_base[1] + eye_shift_y
+    right_eye_pos[0] = right_eye_base[0] + eye_shift_x
+    right_eye_pos[1] = right_eye_base[1] + eye_shift_y
 
     # Compute eye height
     eye_height = eye_height_max * (1 - blink_progress)
@@ -95,9 +108,19 @@ while running:
     pygame.draw.rect(screen, BLACK, (left_eye_pos[0], left_eye_pos[1], eye_width, eye_height))
     pygame.draw.rect(screen, BLACK, (right_eye_pos[0], right_eye_pos[1], eye_width, eye_height))
 
-    # Animate mouth height using sine wave
+    # Draw eyebrows above the eyes (centered and offset)
+    pygame.draw.rect(screen, BLACK, (left_eye_pos[0] - (eyebrow_width - eye_width) // 2, left_eye_pos[1] - eyebrow_offset, eyebrow_width, eyebrow_height))
+    pygame.draw.rect(screen, BLACK, (right_eye_pos[0] - (eyebrow_width - eye_width) // 2, right_eye_pos[1] - eyebrow_offset, eyebrow_width, eyebrow_height))
+
+    # Animate mouth height using sine wave + random variation
     mouth_time = now / 1000.0  # convert ms to seconds
-    mouth_height = mouth_height_base + mouth_amplitude * math.sin(2 * math.pi * mouth_freq * mouth_time)
+    base_mouth_height = mouth_height_base + mouth_amplitude * math.sin(2 * math.pi * mouth_freq * mouth_time)
+    if now > next_mouth_shift_time:
+        if random.random() < 0.5:
+            mouth_height = base_mouth_height + random.uniform(-3, 3)
+        else:
+            mouth_height = base_mouth_height
+        next_mouth_shift_time = now + random.randint(*mouth_shift_interval_range)
 
     # Draw the mouth as a horizontal rectangle with animated height
     pygame.draw.rect(screen, BLACK, (mouth_pos[0], mouth_pos[1], mouth_width, mouth_height))
