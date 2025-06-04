@@ -4,6 +4,7 @@ import os
 import pygame
 import sys
 import math
+import random
 
 # Set position (optional, in case you need to target a specific screen)
 os.environ['SDL_VIDEO_WINDOW_POS'] = "0,0"
@@ -24,12 +25,14 @@ BLACK = (0, 0, 0)
 # Eye positions and dimensions (rotated 90°, so vertical rectangles)
 eye_width = 80
 eye_height_max = 200
-left_eye_pos = [120, 100]  # x, y
-right_eye_pos = [310, 100]
+left_eye_base = [120, 100]  # base x, y
+right_eye_base = [310, 100]
+left_eye_pos = left_eye_base[:]
+right_eye_pos = right_eye_base[:]
 
 # Mouth position and dimensions
-mouth_pos = [230, 450]  # x, y
-mouth_width = 100
+mouth_pos = [220, 550]  # x, y
+mouth_width = 140
 mouth_height_base = 20
 mouth_amplitude = 5  # How much the mouth "wiggles"
 mouth_freq = 2       # How fast the mouth wiggles (Hz)
@@ -41,11 +44,17 @@ blink_progress = 0         # Progress through blink cycle (0–1)
 blinking = False
 blink_start_time = 0
 
+# Eye movement settings
+eye_movement_timer = 0
+next_eye_shift_time = 0
+eye_shift_interval_range = (3000, 6000)  # in ms
+eye_shift_amount = 2
+max_eye_shift = 15  # pixels
+
 # Main loop
 running = True
 while running:
     now = pygame.time.get_ticks()
-
     screen.fill(WHITE)
 
     # Start blinking if time
@@ -66,6 +75,18 @@ while running:
         else:
             blinking = False
             blink_progress = 0
+
+    # Animate small side-to-side eye movement
+    if now > next_eye_shift_time:
+        if random.random() < 0.5:
+            eye_shift_amount = random.randint(-max_eye_shift, max_eye_shift)
+        else:
+            eye_shift_amount = 0
+        next_eye_shift_time = now + random.randint(*eye_shift_interval_range)
+
+    # Update eye positions
+    left_eye_pos[0] = left_eye_base[0] + eye_shift_amount
+    right_eye_pos[0] = right_eye_base[0] + eye_shift_amount
 
     # Compute eye height
     eye_height = eye_height_max * (1 - blink_progress)
