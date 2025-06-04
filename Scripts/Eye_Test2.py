@@ -45,6 +45,13 @@ mouth_height = mouth_height_base
 next_mouth_shift_time = 0
 mouth_shift_interval_range = (2000, 5000)  # ms
 
+# Talk animation
+talking = False
+talk_start_time = 0
+talk_duration = 1000  # ms
+next_talk_time = 0
+talk_interval_range = (4000, 9000)  # ms
+
 # Blink animation settings
 blink_interval = 3000      # Time between blinks (ms)
 blink_duration = 600       # Total blink cycle time (ms)
@@ -76,11 +83,10 @@ while running:
         elapsed = now - blink_start_time
         half = blink_duration // 2
         if elapsed < blink_duration:
-            # First half: close, second half: open
             if elapsed < half:
-                blink_progress = elapsed / half  # 0 → 1
+                blink_progress = elapsed / half
             else:
-                blink_progress = 1 - ((elapsed - half) / half)  # 1 → 0
+                blink_progress = 1 - ((elapsed - half) / half)
         else:
             blinking = False
             blink_progress = 0
@@ -101,29 +107,41 @@ while running:
     right_eye_pos[0] = right_eye_base[0] + eye_shift_x
     right_eye_pos[1] = right_eye_base[1] + eye_shift_y
 
-    # Compute eye height
-    eye_height = eye_height_max * (1 - blink_progress)
+    # Compute eye height for two eyelids
+    lid_height = eye_height_max * 0.5 * blink_progress
+    eye_visible_height = eye_height_max - 2 * lid_height
 
-    # Draw vertical eyes (portrait)
-    pygame.draw.rect(screen, BLACK, (left_eye_pos[0], left_eye_pos[1], eye_width, eye_height))
-    pygame.draw.rect(screen, BLACK, (right_eye_pos[0], right_eye_pos[1], eye_width, eye_height))
+    # Draw eyes with rounded corners
+    pygame.draw.rect(screen, BLACK, (left_eye_pos[0], left_eye_pos[1] + lid_height, eye_width, eye_visible_height), border_radius=20)
+    pygame.draw.rect(screen, BLACK, (right_eye_pos[0], right_eye_pos[1] + lid_height, eye_width, eye_visible_height), border_radius=20)
 
     # Draw eyebrows above the eyes (centered and offset)
     pygame.draw.rect(screen, BLACK, (left_eye_pos[0] - (eyebrow_width - eye_width) // 2, left_eye_pos[1] - eyebrow_offset, eyebrow_width, eyebrow_height))
     pygame.draw.rect(screen, BLACK, (right_eye_pos[0] - (eyebrow_width - eye_width) // 2, right_eye_pos[1] - eyebrow_offset, eyebrow_width, eyebrow_height))
 
-    # Animate mouth height using sine wave + random variation
-    mouth_time = now / 1000.0  # convert ms to seconds
-    base_mouth_height = mouth_height_base + mouth_amplitude * math.sin(2 * math.pi * mouth_freq * mouth_time)
-    if now > next_mouth_shift_time:
-        if random.random() < 0.5:
-            mouth_height = base_mouth_height + random.uniform(-3, 3)
-        else:
-            mouth_height = base_mouth_height
-        next_mouth_shift_time = now + random.randint(*mouth_shift_interval_range)
+    # Animate mouth height using sine wave + random variation or talking
+    if talking:
+        mouth_height = mouth_height_base + 20 * math.sin(10 * now / 100.0)
+        if now - talk_start_time > talk_duration:
+            talking = False
+            next_talk_time = now + random.randint(*talk_interval_range)
+    else:
+        mouth_time = now / 1000.0
+        base_mouth_height = mouth_height_base + mouth_amplitude * math.sin(2 * math.pi * mouth_freq * mouth_time)
+        if now > next_mouth_shift_time:
+            if random.random() < 0.5:
+                mouth_height = base_mouth_height + random.uniform(-3, 3)
+            else:
+                mouth_height = base_mouth_height
+            next_mouth_shift_time = now + random.randint(*mouth_shift_interval_range)
 
-    # Draw the mouth as a horizontal rectangle with animated height
-    pygame.draw.rect(screen, BLACK, (mouth_pos[0], mouth_pos[1], mouth_width, mouth_height))
+        if now > next_talk_time:
+            talking = True
+            talk_start_time = now
+            # pop_sound.play()  # sound removed
+
+    # Draw the mouth as a rounded rectangle with animated height
+    pygame.draw.rect(screen, BLACK, (mouth_pos[0], mouth_pos[1], mouth_width, mouth_height), border_radius=20)
 
     pygame.display.flip()
     clock.tick(60)
