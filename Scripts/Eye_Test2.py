@@ -9,10 +9,10 @@ os.environ['SDL_VIDEO_WINDOW_POS'] = "0,0"
 
 # Initialize
 pygame.init()
-screen = pygame.display.set_mode((480, 800), pygame.FULLSCREEN)
-
-pygame.mouse.set_pos((480, 800))
 pygame.mouse.set_visible(False)
+screen = pygame.display.set_mode((800, 480), pygame.FULLSCREEN)
+
+pygame.mouse.set_pos((800, 480))
 pygame.display.set_caption("Blinking Eyes")
 clock = pygame.time.Clock()
 
